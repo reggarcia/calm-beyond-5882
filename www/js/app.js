@@ -1,4 +1,4 @@
-angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.services'])
+angular.module('quickTasks', ['ionic', 'quickTasks.controllers', 'quickTasks.services'])
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
             if (window.StatusBar) {
@@ -32,21 +32,21 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
                     }
                 }
             })
-            .state('bucket', {
+            .state('provider', {
                 url: "/bucket",
                 abstract: true,
-                templateUrl: "templates/bucket.html"
+                templateUrl: "templates/profile.html"
             })
-            .state('bucket.list', {
-                url: '/list',
+            .state('provider.profile', {
+                url: '/profile',
                 views: {
-                    'bucket-list': {
-                        templateUrl: 'templates/bucket-list.html',
+                    'view-profile': {
+                        templateUrl: 'templates/viewProfile.html',
                         controller: 'myListCtrl'
                     }
                 }
             })
-            .state('bucket.completed', {
+            .state('provider.completed', {
                 url: '/completed',
                 views: {
                     'bucket-completed': {
@@ -55,5 +55,19 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
                     }
                 }
             })
+            .state('search', {
+                url: "/search",
+                abstract: true,
+                templateUrl: "templates/search.html"
+            })
+            .state('search.customers', {
+                url: '/customers',
+                views: {
+                    'search-results': {
+                        templateUrl: 'templates/search-customers.html',
+                        controller: 'searchCustomersCtrl'
+                    }
+                }
+            });
         $urlRouterProvider.otherwise('/auth/signin');
     });

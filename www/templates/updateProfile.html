@@ -1,0 +1,50 @@
+<div class="modal slide-in-up" ng-controller="updateProfileCtrl">
+   <header class="bar bar-header bar-secondary">
+      <button class="button button-clear button-primary" ng-click="close()">Cancel</button>
+      <h1 class="title">Edit Profile</h1>
+      <button class="button button-positive" ng-click="update('{{data._id}}')">Save</button>
+   </header>
+   <ion-content class="padding has-header">
+		<div class="list">
+		  <label class="item item-input">
+		    <input type="text" placeholder="Company Name" ng-model="data.companyName">
+		  </label>
+		  <label class="item item-input">
+		    <input type="text" placeholder="Rate" ng-model="data.rate">
+		  </label>
+		  <label class="item item-input">
+		    <input type="text" placeholder="Zipcode" ng-model="data.zipcode">
+		  </label>
+		  <label class="item item-input">
+		    <textarea placeholder="Tags" ng-model="data.description"></textarea>
+		  </label>
+		  <div class="item item-divider">
+		    Availability
+		  </div>
+		  <label class="item item-input">
+			<input type="text" placeholder="Hours on Monday" ng-model="data.monHours">
+		  </label>
+		  <label class="item item-input">
+			<input type="text" placeholder="Hours on Tuesday" ng-model="data.tueHours">
+		  </label>
+		  <label class="item item-input">
+			<input type="text" placeholder="Hours on Wednesday" ng-model="data.wedHours">
+		  </label>
+		  <label class="item item-input">
+			<input type="text" placeholder="Hours on Thurday" ng-model="data.thuHours">
+		  </label>
+		  <label class="item item-input">
+			<input type="text" placeholder="Hours on Friday" ng-model="data.friHours">
+		  </label>
+		  <label class="item item-input">
+			<input type="text" placeholder="Hours on Saturday" ng-model="data.satHours">
+		  </label>
+		  <label class="item item-input">
+			<input type="text" placeholder="Hours on Sunday" ng-model="data.sunHours">
+		  </label>
+		</div>
+
+   </ion-content>
+</div>
+
+

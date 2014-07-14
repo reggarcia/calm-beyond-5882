@@ -1,6 +1,6 @@
-angular.module('bucketList.services', [])
+angular.module('quickTasks.services', [])
     .factory('API', function ($rootScope, $http, $ionicLoading, $window) {
-       var base = "http://calm-beyond-5882.herokuapp.com";
+       var base = "http://localhost:9804";
         $rootScope.show = function (text) {
             $rootScope.loading = $ionicLoading.show({
                 content: text ? text : 'Loading',

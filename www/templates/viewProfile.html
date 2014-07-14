@@ -1,0 +1,41 @@
+<ion-header-bar class="bar">
+  <button class="button button-clear" ng-click="logout()">Logout</button>
+   <h1 class="title">My Profile</h1>
+   <button class="button button-positive" ng-click="updateProfile('{{list[0]._id}}')">Edit</button>
+
+</ion-header-bar>
+<ion-content class="has-header">
+   <div class="list card" ng-repeat="item in list" >
+      <div class="item item-avatar">
+        <img src="img/mcfly.jpg">
+        <h2>{{item.companyName}}</h2>
+      </div>
+      <div class="item item-body">
+        <h3><i class="icon ion-ios7-pricetag-outline"></i> Tags</h3>
+        <p>
+          {{ item.description }}
+        </p>
+        <h3><i class="icon ion-ios7-calculator-outline"></i> Rate</h3>
+        <p>{{item.rate}}</p>
+        <h3><i class="icon ion-ios7-clock-outline"></i> Hours</h3>
+        <p>
+          <span ng-show="{{item.monHours.length}}">Monday: {{item.monHours}}<br/><span>
+          <span ng-show="{{item.tueHours.length}}">Tuesday: {{item.tueHours}}<br/></span>
+          <span ng-show="{{item.wedHours.length}}">Wednesday: {{item.wedHours}}<br/></span>
+          <span ng-show="{{item.thuHours.length}}">Thursday: {{item.thuHours}}<br/></span>
+          <span ng-show="{{item.friHours.length}}">Friday: {{item.friHours}}<br/></span>
+          <span ng-show="{{item.satHours.length}}">Saturday: {{item.satHours}}<br/></span>
+          <span ng-show="{{item.sunHours.length}}">Sunday: {{item.sunHours}}<br/></span>
+        </p>
+      </div>
+   </div>
+   <div class="card" >
+      <div class="item item-text-wrap" ng-show="noData">
+         <button class="button button-block button-positive" ng-click="createProviderProfile()">I am a Service Provider</button>
+      </div>
+      <div class="item item-text-wrap" ng-show="noData">
+         <button class="button button-block button-positive">I am a Customer</button>
+      </div>
+   </div>
+
+</ion-content>
