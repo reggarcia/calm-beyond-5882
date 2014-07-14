@@ -1,6 +1,6 @@
 angular.module('quickTasks.services', [])
     .factory('API', function ($rootScope, $http, $ionicLoading, $window) {
-       var base = "http://calm-beyond-5882.herokuapp.com/";
+       var base = "http://quicktasksapp.herokuapp.com/";
         $rootScope.show = function (text) {
             $rootScope.loading = $ionicLoading.show({
                 content: text ? text : 'Loading',
