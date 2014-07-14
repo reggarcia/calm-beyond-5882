@@ -94,6 +94,15 @@ angular.module('quickTasks.services', [])
                         token: email
                     }
                 });
-            }
+            },
+            yelpSearch: function (params) {
+                return $http.get(base+'/yelp/search', {
+                    method: 'GET',
+                    params: {
+                        term: params.term,
+                        location: params.location
+                    }
+                });
+            },
         }
     });

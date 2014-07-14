@@ -73,8 +73,15 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
     };
 })
 .controller('searchCustomersCtrl', function ($rootScope, $scope, API, $window) {
-    console.log("search customers loading");
-    $rootScope.hide();
+    API.yelpSearch({
+        term: "plumber",
+        location: "94035"
+    }).success(function (data) {
+        $scope.list = data.businesses;
+        console.log($scope.list);
+    }).error(function (error) {
+        console.log("error");
+    });
 
 })
 .controller('myListCtrl', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
