@@ -1,4 +1,14 @@
 angular.module('quickTasks.controllers', ['quickTasks.services'])
+.controller('LoadingCtrl', function($scope, $ionicLoading) {
+  $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+})
 .controller('MapCtrl', function($scope) {
 
   $scope.map = {
@@ -51,6 +61,7 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
             $rootScope.hide();
             $window.location.href = ('#/provider/profile');
         }).error(function (error) {
+            console.log(error);
             $rootScope.hide();
             $rootScope.notify("Invalid Username or password");
         });
@@ -96,7 +107,17 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
         });
     };
 })
-.controller('searchCustomersCtrl', function ($rootScope, $scope, API, $window) {
+.controller('searchCustomersCtrl', function ($rootScope, $scope, API, $window, $timeout) {
+    // Setup the loader
+    $scope.hideLoader=false;
+
+    // Set a timeout to clear loader, however you would actually call the $ionicLoading.hide(); method whenever everything is ready or loaded.
+    $timeout(function () {
+        $scope.hideLoader=true;
+        $scope.list = data.customers;
+
+    }, 2200);
+
     var data = {
         "customers":[
             {
@@ -121,7 +142,7 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
             }
         ]
     };
-    $scope.list = data.customers;
+
     console.log($scope.data);
 })
 .controller('customerRequestCtrl', function ($rootScope, $scope, API, $window) {
