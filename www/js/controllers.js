@@ -147,7 +147,7 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
         longitude = position.coords.longitude;
 
         API.searchProvidersByGeo({
-            term: "tree removal, painting",
+            term: "painting",
             ll: latitude+","+longitude
         }).success(function (data) {
             $scope.list = data.businesses;
