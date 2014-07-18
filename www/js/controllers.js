@@ -1,9 +1,33 @@
 angular.module('quickTasks.controllers', ['quickTasks.services'])
+.controller('MapCtrl', function($scope) {
 
+  $scope.map = {
+    center: {
+        latitude: 45,
+        longitude: -73
+    },
+    zoom: 8
+    };
+
+  $scope.centerMap = function () {
+    if (!$scope.map) {
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      //console.log('Got pos', pos.coords.latitude, ", ", pos.coords.longitude); // ok
+      //$scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));     // does not work
+      //$scope.map.control.refresh({latitude: pos.coords.latitude, longitude: pos.coords.longitude});   // does not work
+
+    }, function (error) {
+      alert('Unable to get location: ' + error.message);
+    });
+  };
+})
 .controller('SignInCtrl', function ($rootScope, $scope, API, $window) {
     // if the user is already logged in, take him to his bucketlist
     if ($rootScope.isSessionActive()) {
-        $window.location.href = ('#/bucket/profile');
+        $window.location.href = ('#/provider/profile');
     }
 
     $scope.user = {
@@ -25,7 +49,7 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
         }).success(function (data) {
             $rootScope.setToken(email); // create a session kind of thing on the client side
             $rootScope.hide();
-            $window.location.href = ('#/bucket/profile');
+            $window.location.href = ('#/provider/profile');
         }).error(function (error) {
             $rootScope.hide();
             $rootScope.notify("Invalid Username or password");
@@ -73,16 +97,80 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
     };
 })
 .controller('searchCustomersCtrl', function ($rootScope, $scope, API, $window) {
-    API.yelpSearch({
-        term: "plumber",
-        location: "94035"
-    }).success(function (data) {
-        $scope.list = data.businesses;
-        console.log($scope.list);
-    }).error(function (error) {
-        console.log("error");
-    });
+    var data = {
+        "customers":[
+            {
+                "name": "Zac E.",
+                "image_url": "img/photos/zac-efron.png",
+                "request_desc": "Pipe Repair or Replacement Needed!"
+            },
+            {
+                "name": "Bruno M.",
+                "image_url": "img/photos/bruno-mars.png",
+                "request_desc": "Sink has a leak"
+            },
+            {
+                "name": "Ryan R.",
+                "image_url": "img/photos/ryan-reynolds.png",
+                "request_desc": "Clogged kitchen sink"
+            },
+            {
+                "name": "Kristen B.",
+                "image_url": "img/photos/kristen-bell.png",
+                "request_desc": "Dishwasher has sprung a leak"
+            }
+        ]
+    };
+    $scope.list = data.customers;
+    console.log($scope.data);
+})
+.controller('customerRequestCtrl', function ($rootScope, $scope, API, $window) {
+    var data =
+            {
+                "customer_name": "Zac E",
+                "location": "San Jose, CA",
+                "request_desc": "Pipe Repair or Replacement Needed!",
+                "request_details": "We have a leaky faucet that we need repaired. It may need to be replaced. Need immediate service!"
+            };
+    $scope.data = data;
+})
+.controller('searchProvidersCtrl', function ($rootScope, $scope, API, $window) {
+    var latitude, longitude, output = document.getElementById("out");
 
+    if (!navigator.geolocation){
+        output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+        return;
+    }
+
+    function success(position) {
+        latitude  = position.coords.latitude;
+        longitude = position.coords.longitude;
+
+        API.searchProvidersByGeo({
+            term: "tree removal, painting",
+            ll: latitude+","+longitude
+        }).success(function (data) {
+            $scope.list = data.businesses;
+            console.log($scope.list);
+        }).error(function (error) {
+            console.log("error");
+        });
+    }
+
+    function error() {
+        API.searchProviders({
+            term: "plumber",
+            location: "90026"
+        }).success(function (data) {
+            $scope.list = data.businesses;
+            console.log($scope.list);
+        }).error(function (error) {
+            console.log("error");
+        });
+    }
+
+    console.log("locating");
+    navigator.geolocation.getCurrentPosition(success, error);
 })
 .controller('myListCtrl', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
     $rootScope.$on('fetchAll', function(){

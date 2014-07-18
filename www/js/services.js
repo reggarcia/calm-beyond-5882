@@ -1,6 +1,6 @@
 angular.module('quickTasks.services', [])
     .factory('API', function ($rootScope, $http, $ionicLoading, $window) {
-       var base = "http://quicktasksapp.herokuapp.com/";
+        var base = "http://quicktasksapp.herokuapp.com/";
         $rootScope.show = function (text) {
             $rootScope.loading = $ionicLoading.show({
                 content: text ? text : 'Loading',
@@ -50,13 +50,13 @@ angular.module('quickTasks.services', [])
 
         return {
             signin: function (form) {
-                return $http.post(base+'/api/v1/bucketList/auth/login', form);
+                return $http.post(base+'/api/v1/quicktasks/auth/login', form);
             },
             signup: function (form) {
-                return $http.post(base+'/api/v1/bucketList/auth/register', form);
+                return $http.post(base+'/api/v1/quicktasks/auth/register', form);
             },
             getAll: function (email) {
-                return $http.get(base+'/api/v1/bucketList/data/list', {
+                return $http.get(base+'/api/v1/quicktasks/data/list', {
                     method: 'GET',
                     params: {
                         token: email
@@ -64,7 +64,7 @@ angular.module('quickTasks.services', [])
                 });
             },
             getOne: function (id, email) {
-                return $http.get(base+'/api/v1/bucketList/data/item/' + id, {
+                return $http.get(base+'/api/v1/quicktasks/data/item/' + id, {
                     method: 'GET',
                     params: {
                         token: email
@@ -72,7 +72,7 @@ angular.module('quickTasks.services', [])
                 });
             },
             saveItem: function (form, email) {
-                return $http.post(base+'/api/v1/bucketList/data/item', form, {
+                return $http.post(base+'/api/v1/quicktasks/data/item', form, {
                     method: 'POST',
                     params: {
                         token: email
@@ -80,7 +80,7 @@ angular.module('quickTasks.services', [])
                 });
             },
             putItem: function (id, form, email) {
-                return $http.put(base+'/api/v1/bucketList/data/item/' + id, form, {
+                return $http.put(base+'/api/v1/quicktasks/data/item/' + id, form, {
                     method: 'PUT',
                     params: {
                         token: email
@@ -88,15 +88,39 @@ angular.module('quickTasks.services', [])
                 });
             },
             deleteItem: function (id, email) {
-                return $http.delete(base+'/api/v1/bucketList/data/item/' + id, {
+                return $http.delete(base+'/api/v1/quicktasks/data/item/' + id, {
                     method: 'DELETE',
                     params: {
                         token: email
                     }
                 });
             },
-            yelpSearch: function (params) {
-                return $http.get(base+'/yelp/search', {
+            searchBusinesses: function() {
+                return $http.get(base+'/api/v1/quicktasks/search/business', {
+                    method: 'GET'
+                });
+            },
+
+            searchProviders: function (params) {
+                return $http.get(base+'/api/v1/quicktasks/search/providers', {
+                    method: 'GET',
+                    params: {
+                        term: params.term,
+                        location: params.location
+                    }
+                });
+            },
+            searchProvidersByGeo: function (params) {
+                return $http.get(base+'/api/v1/quicktasks/search/providers/geo', {
+                    method: 'GET',
+                    params: {
+                        term: params.term,
+                        ll: params.ll
+                    }
+                });
+            },
+            searchCustomers: function (params) {
+                return $http.get(base+'/api/v1/quicktasks/search/customers', {
                     method: 'GET',
                     params: {
                         term: params.term,

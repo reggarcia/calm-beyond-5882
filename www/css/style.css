@@ -15,7 +15,70 @@
 .item-text-wrap {
     overflow: auto;
 }
-.ion-checkmark-circled.icon-actions.margin
-{
+.ion-checkmark-circled.icon-actions.margin {
     margin-right: 35px;
+}
+
+.item {
+	border-color: transparent;
+}
+.item-avatar.provider {
+	background: url("../img/profile-bg.png") no-repeat;
+}
+
+.item-avatar .profile-info {
+	display: inline-block;
+	vertical-align: top;
+	color: #fff;
+}
+.item-avatar > img:first-child {
+	max-width: 50px;
+	max-height: 50px;
+}
+.item-avatar.customer >img:first-child {
+    border: 2px solid #fd6566;
+    border-radius: 50%;
+}
+p.profile-description.ng-binding {
+	margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 10px 5px;
+    position: relative;
+    line-height: 1.2em;
+    background: #fff;
+}
+p.profile-description:before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: white;
+    position: absolute;
+    top: -4px;
+    left: 15px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-left: none;
+    -webkit-transform: rotate(-45deg);
+}
+.profile-description-container {
+	background: #ccc;
+}
+.profile-photos {
+	display: inline-block;
+	width: 60px;
+}
+.ion-star,
+.ion-camera {
+	color: #22bdff;
+	font-size: 18px;
+	line-height: 18px;
+}
+.button.button-positive {
+	border-color: transparent;
+	background-color: #00adef;
+	color: #fff
+}
+.button.button-block, .button.button-full {
+	margin-top: 0;
 }

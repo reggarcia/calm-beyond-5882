@@ -33,9 +33,9 @@ angular.module('quickTasks', ['ionic', 'quickTasks.controllers', 'quickTasks.ser
                 }
             })
             .state('provider', {
-                url: "/bucket",
+                url: "/provider",
                 abstract: true,
-                templateUrl: "templates/profile.html"
+                templateUrl: "templates/provider.html"
             })
             .state('provider.profile', {
                 url: '/profile',
@@ -55,10 +55,33 @@ angular.module('quickTasks', ['ionic', 'quickTasks.controllers', 'quickTasks.ser
                     }
                 }
             })
+            .state('customer', {
+                url: "/customer",
+                abstract: true,
+                templateUrl: "templates/customer.html"
+            })
+            .state('customer.request', {
+                url: '/request',
+                views: {
+                    'view-profile': {
+                        templateUrl: 'templates/customerRequest.html',
+                        controller: 'customerRequestCtrl'
+                    }
+                }
+            })
             .state('search', {
                 url: "/search",
                 abstract: true,
                 templateUrl: "templates/search.html"
+            })
+            .state('search.providers', {
+                url: '/providers',
+                views: {
+                    'search-results': {
+                        templateUrl: 'templates/search-providers.html',
+                        controller: 'searchProvidersCtrl'
+                    }
+                }
             })
             .state('search.customers', {
                 url: '/customers',
