@@ -205,7 +205,7 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
                 $rootScope.show("Please wait... Processing");
 
                 $scope.item = data[data.length-1];
-                console.log(data);
+
 
                 $scope.list = [];
                 for (var i = 0; i < data.length; i++) {
@@ -221,7 +221,8 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
                 {
                     $scope.noData = false;
                 }
-
+                console.log($scope.list.length);
+                console.log($scope.noData);
                 $ionicModal.fromTemplateUrl('templates/createProfile.html', function (modal) {
                     $scope.newTemplate = modal;
                 });
@@ -305,6 +306,7 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
                 {
                     $scope.noData = false;
                 }
+                console.log($scope.noData);
             }).error(function (data, status, headers, config) {
                 $rootScope.notify("Oops something went wrong!! Please try again later");
             });
@@ -442,8 +444,10 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
                 companyName: companyName,
                 location: location,
                 description: description,
-                tags: tags,
-                rate: rate,
+                tags:tags,
+                tocharge:tocharge,
+                chargeunit:chargeunit,
+                range: range,
                 zipcode: zipcode,
                 monHours: monHours,
                 tueHours: tueHours,

@@ -1,10 +1,11 @@
 <ion-header-bar class="bar bar-header bar-dark">
   <button class="button button-dark icon-left ion-chevron-left" ng-click="logout()">Logout</button>
    <h1 class="title">My Profile</h1>
-   <button class="button button-positive" ng-click="updateProfile('{{list[0]._id}}')">Edit</button>
+   <button class="button button-positive" ng-click="updateProfile('{{list[0]._id}}')"  ng-hide="noData">Edit</button>
 
 </ion-header-bar>
 <ion-content class="has-header">
+  <div ng-hide="noData">
     <div class="row profile-info">
       <div class="col col-50 profile-pic">
         <img ng-src="img/profile-small.png" src="img/profile-small.png">
@@ -30,7 +31,7 @@
     <div class="group-2">
       <img src="img/profile-photos.png" width="320px"/>
     </div>
-    <!--
+  </div>
    <div class="card" >
       <div class="item item-text-wrap" ng-show="noData">
          <button class="button button-block button-positive" ng-click="createProviderProfile()">I am a Service Provider</button>
@@ -39,5 +40,10 @@
          <button class="button button-block button-positive">I am a Customer</button>
       </div>
    </div>
-    -->
+
 </ion-content>
+<ion-footer-bar class="bar">
+  <div class="button-bar" >
+    <a class="button button-block button-positive find-a-match-btn" href="#/search/customers">Find a Match</a>
+   </div>
+</ion-footer-bar>
