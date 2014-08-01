@@ -199,7 +199,36 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
 
     navigator.geolocation.getCurrentPosition(success, error);
 })
-.controller('myListCtrl', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
+.controller('profileForkCtrl', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
+    console.log("test");
+    $rootScope.$on('fetchAll', function(){
+            API.getAll($rootScope.getToken()).success(function (data, status, headers, config) {
+                $rootScope.show("Please wait... Processing");
+                $scope.list = [];
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].isCompleted === false) {
+                        $scope.list.push(data[i]);
+                    }
+                }
+                if($scope.list.length !== 0)
+                {
+                    $window.location.href = ('#/provider/profile');
+                }
+                else
+                {
+                    $scope.noData = false;
+                }
+
+            $rootScope.hide();
+        }).error(function (data, status, headers, config) {
+            $rootScope.hide();
+            $rootScope.notify("Oops something went wrong!! Please try again later");
+        });
+    });
+    $rootScope.$broadcast('fetchAll');
+
+})
+.controller('profileCtrl', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
     $rootScope.$on('fetchAll', function(){
             API.getAll($rootScope.getToken()).success(function (data, status, headers, config) {
                 $rootScope.show("Please wait... Processing");
@@ -221,8 +250,7 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
                 {
                     $scope.noData = false;
                 }
-                console.log($scope.list.length);
-                console.log($scope.noData);
+
                 $ionicModal.fromTemplateUrl('templates/createProfile.html', function (modal) {
                     $scope.newTemplate = modal;
                 });

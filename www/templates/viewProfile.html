@@ -32,18 +32,19 @@
       <img src="img/profile-photos.png" width="320px"/>
     </div>
   </div>
+  <div ng-show="noData">
    <div class="card" >
-      <div class="item item-text-wrap" ng-show="noData">
+      <div class="item item-text-wrap">
          <button class="button button-block button-positive" ng-click="createProviderProfile()">I am a Service Provider</button>
       </div>
-      <div class="item item-text-wrap" ng-show="noData">
-         <button class="button button-block button-positive">I am a Customer</button>
+      <div class="item item-text-wrap">
+         <button class="button button-block button-positive customer-btn">I am a Customer</button>
       </div>
    </div>
-
+  </div>
 </ion-content>
 <ion-footer-bar class="bar">
   <div class="button-bar" >
-    <a class="button button-block button-positive find-a-match-btn" href="#/search/customers">Find a Match</a>
+    <a class="button button-block button-positive find-a-match-btn" href="#/search/customers"  ng-hide="noData">Find a Match</a>
    </div>
 </ion-footer-bar>

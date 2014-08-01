@@ -51,12 +51,21 @@ angular.module('quickTasks', ['ionic', 'quickTasks.controllers', 'quickTasks.ser
                 abstract: true,
                 templateUrl: "templates/provider.html"
             })
+            .state('provider.fork', {
+                url: '/fork',
+                views: {
+                    'view-profile': {
+                        templateUrl: 'templates/profileFork.html',
+                        controller: 'profileForkCtrl'
+                    }
+                }
+            })
             .state('provider.profile', {
                 url: '/profile',
                 views: {
                     'view-profile': {
                         templateUrl: 'templates/viewProfile.html',
-                        controller: 'myListCtrl'
+                        controller: 'profileCtrl'
                     }
                 }
             })
