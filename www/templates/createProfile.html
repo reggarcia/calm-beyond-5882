@@ -18,31 +18,52 @@
 		  <label class="item item-input">
 		    <textarea placeholder="Tags" ng-model="data.description"></textarea>
 		  </label>
-		  <div class="item item-divider">
-		    Availability
-		  </div>
-		  <label class="item item-input">
-			<input type="text" placeholder="Hours on Monday" ng-model="data.monHours">
-		  </label>
-		  <label class="item item-input">
-			<input type="text" placeholder="Hours on Tuesday" ng-model="data.tueHours">
-		  </label>
-		  <label class="item item-input">
-			<input type="text" placeholder="Hours on Wednesday" ng-model="data.wedHours">
-		  </label>
-		  <label class="item item-input">
-			<input type="text" placeholder="Hours on Thurday" ng-model="data.thuHours">
-		  </label>
-		  <label class="item item-input">
-			<input type="text" placeholder="Hours on Friday" ng-model="data.friHours">
-		  </label>
-		  <label class="item item-input">
-			<input type="text" placeholder="Hours on Saturday" ng-model="data.satHours">
-		  </label>
-		  <label class="item item-input">
-			<input type="text" placeholder="Hours on Sunday" ng-model="data.sunHours">
-		  </label>
-		</div>
+	      <div class="item item-divider">
+	        Availability
+	      </div>
+	      <div class="availFields">
+	        <ion-checkbox ng-model="data.isMon" class="availDay" ng-checked="data.monHours">Mo</ion-checkbox>
+	        <label class="item item-input availHour">
+	          <input type="text" placeholder="Hours" ng-model="data.monHours">
+	        </label>
+	      </div>
+	      <div class="availFields">
+	        <ion-checkbox ng-model="data.isTue" class="availDay" ng-checked="data.tueHours">Tu</ion-checkbox>
+	        <label class="item item-input availHour">
+	          <input type="text" placeholder="Hours" ng-model="data.tueHours">
+	        </label>
+	      </div>
+	      <div class="availFields">
+	        <ion-checkbox ng-model="data.isWed" class="availDay" ng-checked="data.wedHours">We</ion-checkbox>
+	        <label class="item item-input availHour">
+	          <input type="text" placeholder="Hours" ng-model="data.wedHours">
+	        </label>
+	      </div>
+	      <div class="availFields">
+	        <ion-checkbox ng-model="data.isThu" class="availDay" ng-checked="data.thuHours">Th</ion-checkbox>
+	        <label class="item item-input availHour">
+	          <input type="text" placeholder="Hours" ng-model="data.thuHours">
+	        </label>
+	      </div>
+	      <div class="availFields">
+	        <ion-checkbox ng-model="data.isFri" class="availDay" ng-checked="data.friHours">Fr</ion-checkbox>
+	        <label class="item item-input availHour">
+	          <input type="text" placeholder="Hours" ng-model="data.friHours">
+	        </label>
+	      </div>
+	      <div class="availFields">
+	        <ion-checkbox ng-model="data.isSat" class="availDay" ng-checked="data.satHours">Sa</ion-checkbox>
+	        <label class="item item-input availHour">
+	          <input type="text" placeholder="Hours" ng-model="data.satHours">
+	        </label>
+	      </div>
+	      <div class="availFields">
+	        <ion-checkbox ng-model="data.isSun" class="availDay" ng-checked="data.sunHours">Su</ion-checkbox>
+	        <label class="item item-input availHour">
+	          <input type="text" placeholder="Hours" ng-model="data.sunHours">
+	        </label>
+	      </div>
+    </div>
    </ion-content>
 </div>
 

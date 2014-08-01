@@ -6,13 +6,16 @@
 
 </ion-header-bar>
 <ion-content class="has-header padding">
-	<div class="loading7" ng-hide="hideLoader"><i></i><i></i></div>
-	<div class="list card" ng-repeat="item in list" >
-    <a class="item item-avatar customer" href="#/customer/request">
-      <img ng-src="{{item.image_url}}">
-      <h2>{{item.name}}</h2>
-      <p>{{item.request_desc}}</p>
-    </a>
+    <div class="loading-icon">
+		  <div class="loading7" ng-hide="hideLoader"><i></i><i></i></div>
+    </div>
+	  <div class="list card" ng-repeat="item in list" >
+      <a class="item item-avatar customer" href="#/customer/request">
+        <img ng-src="{{item.image_url}}">
+        <h2>{{item.name}}</h2>
+        <p>{{item.request_desc}}</p>
+      </a>
 
-  </div>
+    </div>
+
 </ion-content>

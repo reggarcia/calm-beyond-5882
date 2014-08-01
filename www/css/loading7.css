@@ -6,11 +6,15 @@ body>div{
 div{
   margin:auto;
 }
-
+/*
+.loading-icon {
+  -webkit-animation:loading-moveUp 4s ease-in-out forwards ;
+  animation:loading-moveUp 4s ease-in-out forwards;
+}
+*/
 .loading7{
   width: 30px;
   height: 30px;
-  position: relative;
 
   /*-webkit-animation:loading7-moveUp 1s ease-in-out forwards;*/
 }
@@ -37,6 +41,22 @@ div{
   animation:loading7-ani2 1s linear infinite;
 }
 
+@-webkit-keyframes loading-moveUp{
+  0%{
+    -webkit-transform:translateY(300px);
+  }
+  100% {
+    -webkit-transform:translateY(0);
+  }
+}
+@keyframes loading-moveUp{
+  0%{
+    -webkit-transform:translateY(300px);
+  }
+  100% {
+    -webkit-transform:translateY(0);
+  }
+}
 @keyframes loading7-ani1{
   25%{
     z-index: 2;

@@ -113,8 +113,10 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
 
     // Set a timeout to clear loader, however you would actually call the $ionicLoading.hide(); method whenever everything is ready or loaded.
     $timeout(function () {
+
         $scope.hideLoader=true;
         $scope.list = data.customers;
+
 
     }, 2200);
 
@@ -155,6 +157,11 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
             };
     $scope.data = data;
 })
+
+.controller('connectMessageCtrl', function ($rootScope, $scope, API, $window) {
+    console.log("connect message");
+})
+
 .controller('searchProvidersCtrl', function ($rootScope, $scope, API, $window) {
     var latitude, longitude, output = document.getElementById("out");
 
@@ -190,38 +197,41 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
         });
     }
 
-    console.log("locating");
     navigator.geolocation.getCurrentPosition(success, error);
 })
 .controller('myListCtrl', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
     $rootScope.$on('fetchAll', function(){
             API.getAll($rootScope.getToken()).success(function (data, status, headers, config) {
-            $rootScope.show("Please wait... Processing");
-            $scope.list = [];
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].isCompleted === false) {
-                    $scope.list.push(data[i]);
-                }
-            }
-            if($scope.list.length === 0)
-            {
-                $scope.noData = true;
-            }
-            else
-            {
-                $scope.noData = false;
-            }
+                $rootScope.show("Please wait... Processing");
 
-            $ionicModal.fromTemplateUrl('templates/createProfile.html', function (modal) {
-                $scope.newTemplate = modal;
+                $scope.item = data[data.length-1];
+                console.log(data);
+
+                $scope.list = [];
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].isCompleted === false) {
+                        $scope.list.push(data[i]);
+                    }
+                }
+                if($scope.list.length === 0)
+                {
+                    $scope.noData = true;
+                }
+                else
+                {
+                    $scope.noData = false;
+                }
+
+                $ionicModal.fromTemplateUrl('templates/createProfile.html', function (modal) {
+                    $scope.newTemplate = modal;
+                });
+                $ionicModal.fromTemplateUrl('templates/updateProfile.html', function (modal) {
+                    $scope.updateProfileTemplate = modal;
+                },
+                {
+                 // Use our scope for the scope of the modal to keep it simple
+                 scope: $scope
             });
-            $ionicModal.fromTemplateUrl('templates/updateProfile.html', function (modal) {
-                $scope.updateProfileTemplate = modal;
-            },
-            {
-             // Use our scope for the scope of the modal to keep it simple
-             scope: $scope
-           });
 
             $scope.createProviderProfile = function () {
                 $scope.newTemplate.show();
@@ -324,9 +334,14 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
 
 
         $scope.update = function (id) {
-            var companyName = this.data.companyName,
+            var yourName = this.data.yourName,
+                companyName = this.data.companyName,
+                location = this.data.location,
                 description = this.data.description,
-                rate = this.data.rate,
+                tags = this.data.tags,
+                tocharge = this.data.tocharge,
+                chargeunit = this.data.chargeunit,
+                range = this.data.range,
                 zipcode = this.data.zipcode,
                 monHours = this.data.monHours,
                 tueHours = this.data.tueHours,
@@ -343,9 +358,14 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
             $rootScope.show("Please wait... updating profile");
 
             API.putItem(id, {
+                yourName: yourName,
                 companyName: companyName,
+                location: location,
                 description: description,
-                rate: rate,
+                tags: tags,
+                tocharge: tocharge,
+                chargeunit: chargeunit,
+                range: range,
                 zipcode: zipcode,
                 monHours: monHours,
                 tueHours: tueHours,
@@ -373,9 +393,14 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
     })
 .controller('newCtrl', function ($rootScope, $scope, API, $window) {
         $scope.data = {
+            yourName:"",
             companyName: "",
+            location: "",
             description: "",
-            rate: "",
+            tags: "",
+            tocharge: "",
+            chargeunit: "",
+            range: "",
             zipcode:"",
             monHours:"",
             tueHours:"",
@@ -390,9 +415,14 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
         };
 
         $scope.create = function () {
-            var companyName = this.data.companyName,
+            var yourName = this.data.yourName,
+                companyName = this.data.companyName,
+                location = this.data.location,
                 description = this.data.description,
-                rate = this.data.rate,
+                tags = this.data.tags,
+                tocharge = this.data.tocharge,
+                chargeunit = this.data.chargeunit,
+                range = this.data.range,
                 zipcode = this.data.zipcode,
                 monHours = this.data.monHours,
                 tueHours = this.data.tueHours,
@@ -408,8 +438,11 @@ angular.module('quickTasks.controllers', ['quickTasks.services'])
             $rootScope.show("Please wait... Creating new");
 
             var form = {
+                yourName: yourName,
                 companyName: companyName,
+                location: location,
                 description: description,
+                tags: tags,
                 rate: rate,
                 zipcode: zipcode,
                 monHours: monHours,

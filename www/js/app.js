@@ -9,6 +9,20 @@ angular.module('quickTasks', ['ionic', 'quickTasks.controllers', 'quickTasks.ser
     })
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
+            .state('welcome', {
+                url: "/welcome",
+                abstract: true,
+                templateUrl: "templates/welcome.html"
+            })
+            .state('welcome.home', {
+                url: '/home',
+                views: {
+                    'welcome-home': {
+                        templateUrl: 'templates/welcome-home.html',
+                        controller: 'WelcomeCtrl'
+                    }
+                }
+            })
             .state('auth', {
                 url: "/auth",
                 abstract: true,
@@ -80,6 +94,20 @@ angular.module('quickTasks', ['ionic', 'quickTasks.controllers', 'quickTasks.ser
                     'search-results': {
                         templateUrl: 'templates/search-providers.html',
                         controller: 'searchProvidersCtrl'
+                    }
+                }
+            })
+            .state('connect', {
+                url: "/connect",
+                abstract: true,
+                templateUrl: "templates/connect.html"
+            })
+            .state('connect.message', {
+                url: '/message',
+                views: {
+                    'connect-message': {
+                        templateUrl: 'templates/connect-message.html',
+                        controller: 'connectMessageCtrl'
                     }
                 }
             })
