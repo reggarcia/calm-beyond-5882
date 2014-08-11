@@ -2,7 +2,7 @@
 	'use strict';
 	var myApp = angular.module('quickTasksApp', [ 'onsen.directives']);
 		myApp.factory('API', function ($rootScope, $http, $window) {
-			var base = "http://localhost:9804";
+			var base = "http://quicktasksapp.herokuapp.com/";
 	        $rootScope.show = function (text) {
 	            console.log("rootscope show");
 	        };
