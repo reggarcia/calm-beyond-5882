@@ -88,6 +88,8 @@ input[type=email], input[type=password] {
 .customerRequestView .fa-dollar {
     color: #27ade1;
     display: inline-block;
+
+
     margin-right: 7px;
     width: 8px;
 }
@@ -106,7 +108,6 @@ input[type=email], input[type=password] {
     width: 100%;
     border-radius: 6px;
     width: 192px;
-    height: 65px;
     vertical-align: middle;
     padding: 11px 10px;
     white-space: normal;
@@ -115,4 +116,7 @@ input[type=email], input[type=password] {
     width: 100%;
     margin: 0;
     line-height: 18px;
+}
+.customerRequestView img {
+width: 90px;
 }

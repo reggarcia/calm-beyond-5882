@@ -87,8 +87,8 @@
 }
 .panel-pic {
     width: 90px;
-    height: 99px;
-    padding-top: 8px;
+    height: 90px;
+    padding-top: 0;
     position: relative;
     border-radius: 50%;
     border: 5px solid #bfe7fb;
@@ -103,7 +103,7 @@
 }
 .panel-pic .fa {
     font-size: 70px;
-    /* line-height: 70px; */
+    line-height: 90px;
     color: #2d353c;
     /* -webkit-transform: rotate(36deg); */
 }
