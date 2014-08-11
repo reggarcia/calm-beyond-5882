@@ -1,0 +1,19 @@
+<ons-page ng-controller="WelcomeForkController">
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Back</ons-back-button>
+    </div>
+    <div class="center"></div>
+  </ons-toolbar>
+
+  <div style="text-align: center" class="content-padded">
+
+    <ons-button modifier="large--cta" ng-click="myNavigator.pushPage('serviceProviderProfileForm.html', {hoge: 'hoge'})">I am a Service Provider</ons-button>
+
+    <br>
+
+    <ons-button modifier="large" ng-click="myNavigator.pushPage('customerProfileView.html', {hoge: 'hoge'})">I am a Customer</ons-button>
+
+
+  </div>
+</ons-page>

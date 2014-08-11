@@ -1,0 +1,118 @@
+@import url("../lib/onsen/css/font_awesome/css/font-awesome.min.css");
+@import url("../lib/onsen/css/onsenui.css");
+@import url("../lib/onsen/css/onsen-css-components.css");
+
+@import url("register.css");
+
+div.float-left {
+    float: left;
+}
+
+.text-centering {
+    text-align: center;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+
+
+input[type=email], input[type=password] {
+    display: block;
+    width: 80%;
+    height: 48px;
+    margin: 0 auto;
+    font-size: 19px;
+    outline: none;
+    line-height: 48px;
+}
+
+.button.login-button {
+    display: block;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    font-size: 18px;
+}
+
+.forgot-password {
+    display: block;
+    margin: 8px auto 0 auto;
+    font-size: 14px;
+}
+
+
+.customer-search-results img {
+    width: 50px;
+    height: 50px;
+    margin: 7px 0;
+    vertical-align: middle
+}
+
+.customer-request {
+    display: inline-block;
+    margin-left: 20px;
+}
+.customer-request-description {
+    font-size: 14px;
+}
+
+.list-item-action {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -10px;
+    font-size: 20px;
+    line-height: 26px;
+    opacity: 0.4;
+}
+
+
+.customerRequestView .panel-account {
+    background: #2b333e;
+}
+.customerRequestView .panel-pic {
+    border-color: #fe626c;
+    box-shadow: none;
+}
+.customerRequestView .panel-description {
+    background: #f2f1f5;
+    width: 100%;
+    padding: 20px;
+    color: #404040;
+}
+.customerRequestView .panel-availability {
+    background: #f8f8f8;
+}
+.customerRequestView .fa-clock-o,
+.customerRequestView .fa-dollar {
+    color: #27ade1;
+    display: inline-block;
+    margin-right: 7px;
+    width: 8px;
+}
+.customerRequestView .panel-offer {
+    text-align: left;
+    padding: 20px;
+}
+.requestSummary .fa-comment {
+    font-size: 100px;
+    display: inline-block;
+    position: absolute;
+    width: 200px;
+}
+.requestSummary {
+    background: #f9666a;
+    width: 100%;
+    border-radius: 6px;
+    width: 192px;
+    height: 65px;
+    vertical-align: middle;
+    padding: 11px 10px;
+    white-space: normal;
+}
+.customerRequestView p {
+    width: 100%;
+    margin: 0;
+    line-height: 18px;
+}

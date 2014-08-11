@@ -1,0 +1,55 @@
+{
+  "name": "OnsenUI",
+  "version": "1.1.1",
+  "homepage": "http://onsenui.io",
+  "authors": [
+    "Kruy Vanna <kruyvanna@gmail.com>",
+    "Mitsunori KUBOTA <anatoo.jp@gmail.com>"
+  ],
+  "description": "Web Component inspired HTML5 UI framework for building modern mobile application",
+  "main": [
+    "build/js/onsenui.js"
+  ],
+  "styles": [
+    "build/css/onsenui.css",
+    "build/css/onsen-css-components.css"
+  ],
+  "keywords": [
+    "onsenui",
+    "angular",
+    "html5",
+    "cordova",
+    "phonegap",
+    "web",
+    "component",
+    "monaca"
+  ],
+  "dependencies": {
+    "angular": "~1.2.10"
+  },
+  "license": "Apache License, Version 2.0",
+  "ignore": [
+    "**/.*",
+    "app",
+    "demo",
+    "docs",
+    "package.json",
+    "css-components",
+    "node_modules",
+    "config",
+    "framework",
+    "project_templates",
+    "test",
+    "gulpfile.js"
+  ],
+  "_release": "1.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.1",
+    "commit": "2567fef045ea26bc585c29e929101809e2cc238c"
+  },
+  "_source": "git://github.com/OnsenUI/OnsenUI.git",
+  "_target": "~1.1.1",
+  "_originalSource": "onsenui",
+  "_direct": true
+}
