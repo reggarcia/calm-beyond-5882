@@ -26,23 +26,23 @@
     /* position: absolute; */
     /* top: 17px; */
     /* left: 120px; */
-    white-space: nowrap;
+    /* white-space: nowrap; */
     display: inline-block;
     color: #fff;
-    width: 140px;
+    /* width: 140px; */
     /* height: 136px; */
     /* border: 1px solid tomato; */
-    vertical-align: top;
+    vertical-align: middle;
 
 }
 .panel-account-text .yourName{
     font-size: 22px;
 }
 .panel-account-text .companyName{
-    font-size: 18px;
+    font-size: 16px;
 }
 .panel-account-text .location{
-    font-size: 16px;
+    font-size: 14px;
 }
 .panel-account-text input {
     width: 220px;
@@ -99,7 +99,7 @@
     display: inline-block;
     text-align: center;
     /* border: 1px solid blue; */
-    vertical-align: top;
+    vertical-align: middle;
 }
 .panel-pic .fa {
     font-size: 70px;

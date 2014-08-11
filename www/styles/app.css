@@ -15,8 +15,22 @@ div.float-left {
 .font-weight-500 {
     font-weight: 500;
 }
+button.slide-left.button--.effeckt-button.button.no-select.button--large.button--provider {
+    background: #1caeeb;
+    text-transform: uppercase;
+}
 
-
+button.slide-left.button--.effeckt-button.button.no-select.button--large.button--customer {
+    background: #fc666b;
+    text-transform: uppercase;
+}
+.short-desc {
+    width: 80%;
+    color: #404040;
+    line-height: 16px;
+    margin: 10px 0 30px;
+    font-size: 16px;
+}
 
 input[type=email], input[type=password] {
     display: block;
@@ -113,7 +127,7 @@ input[type=email], input[type=password] {
     white-space: normal;
 }
 .customerRequestView p {
-    width: 100%;
+    width: 90%;
     margin: 0;
     line-height: 18px;
 }

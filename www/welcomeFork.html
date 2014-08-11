@@ -4,16 +4,19 @@
       <ons-back-button>Back</ons-back-button>
     </div>
     <div class="center"></div>
+    <div class="right">
+      <ons-button ng-click="logout()">Logout</ons-button>
+    </div>
   </ons-toolbar>
 
   <div style="text-align: center" class="content-padded">
 
-    <ons-button modifier="large--cta" ng-click="myNavigator.pushPage('serviceProviderProfileForm.html', {hoge: 'hoge'})">I am a Service Provider</ons-button>
-
+    <ons-button modifier="large provider" ng-click="myNavigator.pushPage('serviceProviderProfileForm.html', {hoge: 'hoge'})">I am a Service Provider</ons-button>
+    <p class="short-desc"> List your service to get matched with people that need your help</p>
     <br>
 
-    <ons-button modifier="large" ng-click="myNavigator.pushPage('customerProfileView.html', {hoge: 'hoge'})">I am a Customer</ons-button>
-
+    <ons-button modifier="large customer" ng-click="myNavigator.pushPage('customerProfileView.html', {hoge: 'hoge'})">I am a Customer</ons-button>
+    <p class="short-desc">Post a request and get matched with service providers that can best help you</p>
 
   </div>
 </ons-page>
